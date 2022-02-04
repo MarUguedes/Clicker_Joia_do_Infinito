@@ -6,7 +6,7 @@ void main() {
 
 int fragments = 0;
 int pieces = 0;
-int stone = 0;
+int stone = 1;
 
 class Stone extends StatefulWidget {
   const Stone({Key? key}) : super(key: key);
@@ -23,30 +23,38 @@ class _StoneState extends State<Stone> {
         backgroundColor: Colors.black,
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(
-              'JÓIA DO INFINITO',
+            const Text(
+              'JOIA DO INFINITO',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
-                  fontSize: 40,
+                  fontSize: 30,
                   shadows: [
                     Shadow(
-                      offset: Offset(1, 1),
+                      offset: Offset(2, 3),
                       blurRadius: 8,
-                      color: Color.fromARGB(232, 98, 34, 182),
+                      color: Color.fromARGB(232, 98, 25, 194),
                     )
                   ]),
             ),
-            Container(
-              height: 50,
-            ),
+            Espacamento(),
             joia(),
-            Container(
-              height: 30,
-            ),
+            Espacamento(),
+            
             Text(
-              'Stones: $stone\nPieces: $pieces\nFragments: $fragments',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+              'STONES:\n $stone\nPIECES: \n$pieces\nFRAGMENTS:\n $fragments',
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+                 shadows: [
+                    Shadow(
+                      offset: Offset(1, 1),
+                      blurRadius: 5,
+                      color: Color.fromARGB(232, 39, 22, 194),
+                    )
+                  ]
+              ),
+              textAlign: TextAlign.center,
             )
           ]),
         ),
@@ -94,5 +102,17 @@ Image joia() {
   } else {
     return Image.network(
         'https://camo.githubusercontent.com/0abe58ebc2fe9cc1089ab3915e6156b2c30622b405529dc42965d603f468abf4/68747470733a2f2f692e696d6775722e636f6d2f6a54714e6137442e706e67');
+  }
+}
+
+Espacamento() {
+  if (stone == 0) {
+    return Container(
+      height: 120,
+    );
+  } else {
+    return Container(
+      height:2,
+    );
   }
 }
